@@ -9,17 +9,24 @@ else message=$1
     echo "reset hashcode is, $message"
 
     echo "dev start"
-    git checkout feature/a
+    git checkout deploy/DEV
     git reset --hard $message
     git push -f --no-verify
 
     echo "dev complete"
 
     echo "stg start"
-    git checkout feature/b
+    git checkout deploy/STG
     git reset --hard $message
     git push -f --no-verify
 
     echo "stg complete"
+
+    echo "cbt-beta start"
+    git checkout deploy/CBT-BETA
+    git reset --hard $message
+    git push -f --no-verify
+
+    echo "cbt-beta complete"
 fi
 
