@@ -1,10 +1,10 @@
 #!/bin/sh
 # 입력 받은 hash code로 DEV/STG/CBT-BETA를 리셋합니다.
 echo "Hello, SPA"
-message=""
+message=$(git rev-parse HEAD)
 
 if [ "$1" = "" ]
-then echo "empty hashcode"
+then echo "empty hashcode, $message"
 else message=$1
     echo "reset hashcode is, $message"
 
